@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zombie</title>
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        span {
+            font-size: 54px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: white;
+        }
+
+        @keyframes fadeToBlack {
+            0%, 100% { color: white; }
+            50% { color: #464646; }
+        }
+
+        .fading-text {
+            animation: fadeToBlack 2.5s infinite;
+        }
+
+        .container {
+            text-align: center;
+        }
+        
+        .link-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            
+        }
+
+        img {
+            width: 27px;
+            height: 27px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">  
+        <div class="center">
+            <span class="fading-text">zombie</span>
+        </div>
+        <!--
+        <div class="link-container">
+            <a href="https://www.github.com/b6ay">
+                <img src="images/github.png" alt="GitHub Logo">
+            </a>
+            <a href="https://discord.com/users/831048153586466856">
+                <img src="images/discord.png" alt="Discord User Profile">
+            </a>
+        </div>
+        -->
+    </main>
+</body>
+</html>
