@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zombie</title>
     <style>
+       
         body, html {
             width: 100%;
             height: 100%;
@@ -15,12 +16,21 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        
+        .container {
+            z-index: 10; 
+            text-align: center; 
         }
 
         span {
             font-size: 54px;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             color: white;
+            letter-spacing: 3px;
         }
 
         @keyframes fadeToBlack {
@@ -32,16 +42,47 @@
             animation: fadeToBlack 2.5s infinite;
         }
 
-        .container {
-            text-align: center;
+       
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; 
         }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: moveStars 5s linear infinite;
+        }
+
+        @keyframes moveStars {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
         
         .link-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .link-container a {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            
         }
 
         img {
@@ -49,14 +90,21 @@
             height: 27px;
             display: block;
         }
+
+        
     </style>
 </head>
 <body>
+    
+    <div class="stars"></div>
+
+   
     <main class="container">  
         <div class="center">
             <span class="fading-text">zombie</span>
         </div>
-        <!--
+
+        
         <div class="link-container">
             <a href="https://www.github.com/b6ay">
                 <img src="images/github.png" alt="GitHub Logo">
@@ -65,7 +113,24 @@
                 <img src="images/discord.png" alt="Discord User Profile">
             </a>
         </div>
-        -->
+        
+        
     </main>
+
+    
+    <script>
+    //star script
+        const starField = document.querySelector('.stars');
+        const starCount = 100; 
+
+        for (let i = 0; i < starCount; i++) {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = `${Math.random() * 100}vh`; 
+            star.style.left = `${Math.random() * 100}vw`; 
+            star.style.animationDuration = `${Math.random() * 3 + 2}s`; 
+            starField.appendChild(star);
+        }
+    </script>
 </body>
 </html>
