@@ -1,0 +1,267 @@
+<!--  
+    |\---/|  
+    | ,_, |            >_<  
+     \_`_/-..----.         
+    ___/ `   ' ,""+ \  
+    (__...'   __\    |`.___.';  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meow</title>
+    <style>
+
+        @font-face {
+            font-family: 'Pixel';
+            src: url('font/pixel.ttf') format('truetype'); 
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'sweety';
+            src: url('font/sweety.otf') format('truetype'); 
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            cursor: url('media/razor.png') 16 16, auto !important;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('media/limbo1.jpg');
+            background-size: cover;
+            transition: background-image 0.6s ease-in-out;
+            background-position: center center;
+        }
+
+        .onboarding-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            opacity: 1;
+            transition: opacity 0.6s ease, backdrop-filter 0.6s ease;
+        }
+
+        .onboarding-text {
+            font-family: 'sweety';
+            font-size: 28px;
+            color: white;
+            text-align: center;
+        }
+
+        .hidden {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+        visibility: hidden; 
+        pointer-events: none; 
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            color: rgb(141, 3, 3);
+            font-size: 15px;
+            font-weight: bold;
+            pointer-events: none;
+            animation: particle-animation 0.6s forwards;
+        }
+
+        .particle::before {
+            content: '+';
+        }
+
+        @keyframes particle-animation {
+            to {
+                transform: translateY(60px) translateX(var(--random-x));
+                opacity: 0;
+            }
+        }
+
+        .profile-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 440px;
+            height: 250px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-picture {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: url('media/pfp1.jpg');
+            background-size: cover;
+            margin-bottom: 10px;
+            border: 2px solid white;
+        }
+
+        .profile-name {
+            font-family: 'sweety';
+            font-size: 18px;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+
+        .spotify-integration {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .spotify-album-cover {
+            width: 50px;
+            height: 50px;
+            border-radius: 0px;
+            background: url('https://i.scdn.co/image/ab67616d0000b2733e378f6f76942740e239df0d') center/cover; /* Title Fight album cover */
+            margin-right: 17px;
+        }
+
+        .spotify-info {
+            font-family: 'sweety';
+            font-size: 16px;
+        }
+
+        .spotify-info .song-title {
+            font-weight: bold;
+        }
+
+        .spotify-info .artist {
+            font-style: italic;
+        }
+
+        .social-links {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 15px; 
+        justify-content: center;
+        }
+
+        .social-link {
+        display: inline-block;
+        }
+
+        .social-icon {
+        width: 40px; 
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: transform 0.3s ease; 
+        }
+
+        .social-icon:hover {
+        transform: scale(1.1); 
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="onboarding-overlay" id="onboardingOverlay">
+        <div class="onboarding-text">>_<</div>
+    </div>
+
+    <div class="profile-box">
+        <div class="profile-picture"></div>
+        <div class="profile-name">skintore</div>
+    
+        <div class="spotify-integration">
+            <div class="spotify-album-cover"></div>
+            <div class="spotify-info">
+                <div class="song-title">Currently Playing: Where Am I?</div>
+                <div class="artist">by Title Fight</div>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/piercednerves" class="social-link">
+                <img src="media/noose.gif" alt="Instagram" class="social-icon">
+            </a>
+            <a href="open.spotify.com/playlist/4AA8vN3yuH9EzaiHEo0LjP?si=23dc6aceba334c33"class="social-link">
+                <img src="media/noose.gif" alt="Spotify" class="social-icon">
+            </a>
+            <a href="https://www.github.com/b6ay"class="social-link">
+                <img src="media/noose.gif" alt="GitHub" class="social-icon">
+            </a>
+        </div>
+    </div>
+
+
+    </div>
+
+    <audio id="backgroundMusic" src="media/where%20am%20i.mp3" loop></audio>
+    
+    <script>
+        const overlay = document.getElementById('onboardingOverlay');
+        const music = document.getElementById('backgroundMusic');
+        let particlesEnabled = false;
+        let lastParticleTime = 0;
+        const particleCooldown = 2;
+
+        document.body.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+            music.volume = 0.3;
+            music.play();
+            particlesEnabled = true;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (particlesEnabled && Date.now() - lastParticleTime > particleCooldown) {
+                createParticle(e.clientX, e.clientY);
+                lastParticleTime = Date.now();
+            }
+        });
+
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            
+            const randomX = (Math.random() - 0.7) * 55 + 'px';
+            particle.style.setProperty('--random-x', randomX);
+
+            document.body.appendChild(particle);
+            particle.addEventListener('animationend', () => {
+                particle.remove();
+            });
+        }
+    </script>
+</body>
+</html>
+
